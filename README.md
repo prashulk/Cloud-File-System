@@ -107,18 +107,27 @@ fio --name=test --size=25k -- filename=/home/prashulkumar/my_mount_point/test/te
 ```
 
 **- Native FS Results:**
-  • Read IOPS :1000
-  • Bandwidth: 4000 KiB/s (4096 KB/s)
-  • Average Read Latency: 868,778.33 ns
-  • Maximum Read Latency: 3,787,000 ns
-  • Standard Deviation of Read Latency: 1,535,956.75 ns
+  - Read IOPS :1000
+  
+  - Bandwidth: 4000 KiB/s (4096 KB/s)
+  
+  - Average Read Latency: 868,778.33 ns
+  
+  - Maximum Read Latency: 3,787,000 ns
+  
+  - Standard Deviation of Read Latency: 1,535,956.75 ns
   
 **- GCS Mounted Directory Results:**
-  • Read IOPS: 138
-  • Bandwidth: 333 KiB/s (341 KB/s)
-  • Average Read Latency: 11,821,201.00 ns
-  • Maximum Read Latency: 35,460,000 ns
-  • Standard Deviation of Read Latency: 20,471,535.49 ns
+  
+  - Read IOPS: 138
+  
+  - Bandwidth: 333 KiB/s (341 KB/s)
+  
+  - Average Read Latency: 11,821,201.00 ns
+  
+  - Maximum Read Latency: 35,460,000 ns
+  
+  - Standard Deviation of Read Latency: 20,471,535.49 ns
 
   
 - In the Native FS scenario, the system demonstrated significantly higher read performance compared to the GCS Mounted Directory. The Native FS achieved 1000 IOPS with an average latency of 868,778.33 ns. In contrast, the GCS Mounted Directory had a lower read performance, achieving 138 IOPS with an average latency of 11,821,201.00 ns.
