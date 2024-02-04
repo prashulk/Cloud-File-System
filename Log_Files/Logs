@@ -1,0 +1,1187 @@
+Test case 1 log -
+
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> create /testcase1.txt (33188,)
+DEBUG:urllib3.connectionpool:Resetting dropped connection: storage.googleapis.com
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 748
+DEBUG:fuse.log-mixin:<- create 1
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (1,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699479626.1594315, 'st_mtime': 1699479626.1594317, 'st_atime': 1699479626.1594317, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testcase1.txt (1,)
+flush called for path: /testcase1.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> utimens /testcase1.txt ((1699479626.1577475, 1699479626.1577475),)
+DEBUG:fuse.log-mixin:<- utimens 0
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699479626.1594315, 'st_mtime': 1699479626.1594317, 'st_atime': 1699479626.1594317, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testcase1.txt (1,)
+flush called for path: /testcase1.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /testcase1.txt (1,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699478059.6779733, 'st_mtime': 1699478059.6779733, 'st_atime': 1699478059.6779733, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699479626.1594315, 'st_mtime': 1699479626.1594317, 'st_atime': 1699479626.1594317, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> open /testcase1.txt (32769,)
+DEBUG:fuse.log-mixin:<- open 2
+DEBUG:fuse.log-mixin:-> getxattr /testcase1.txt ('security.capability',)
+DEBUG:fuse.log-mixin:<- getxattr b''
+DEBUG:fuse.log-mixin:-> truncate /testcase1.txt (0,)
+DEBUG:fuse.log-mixin:<- truncate None
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699479626.1594315, 'st_mtime': 1699479626.1594317, 'st_atime': 1699479626.1594317, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testcase1.txt (2,)
+flush called for path: /testcase1.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> getxattr /testcase1.txt ('security.capability',)
+DEBUG:fuse.log-mixin:<- getxattr b''
+DEBUG:fuse.log-mixin:-> write /testcase1.txt (b'this is some content\n', 0, 2)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testcase1.txt?alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 749
+DEBUG:fuse.log-mixin:<- write 21
+DEBUG:fuse.log-mixin:-> getxattr /testcase1.txt ('security.capability',)
+DEBUG:fuse.log-mixin:<- getxattr b''
+DEBUG:fuse.log-mixin:-> write /testcase1.txt (b'this is another content\n', 21, 2)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testcase1.txt?alt=media HTTP/1.1" 200 21
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 749
+DEBUG:fuse.log-mixin:<- write 24
+DEBUG:fuse.log-mixin:-> flush /testcase1.txt (2,)
+flush called for path: /testcase1.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /testcase1.txt (2,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699478059.6779733, 'st_mtime': 1699478059.6779733, 'st_atime': 1699478059.6779733, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7fba9bfa3d60>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699478059.6779733, 'st_mtime': 1699478059.6779733, 'st_atime': 1699478059.6779733, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7fba9bfa3d60>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699478059.6779733, 'st_mtime': 1699478059.6779733, 'st_atime': 1699478059.6779733, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699479702.9438562, 'st_mtime': 1699479702.9438562, 'st_atime': 1699479626.1594317, 'st_nlink': 1, 'st_size': 45, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699479702.9438562, 'st_mtime': 1699479702.9438562, 'st_atime': 1699479626.1594317, 'st_nlink': 1, 'st_size': 45, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> open /testcase1.txt (32768,)
+DEBUG:fuse.log-mixin:<- open 3
+DEBUG:fuse.log-mixin:-> read /testcase1.txt (4096, 0, 3)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testcase1.txt?alt=media HTTP/1.1" 200 45
+DEBUG:fuse.log-mixin:<- read b'this is some content\nthis is another content\n'
+DEBUG:fuse.log-mixin:-> flush /testcase1.txt (3,)
+flush called for path: /testcase1.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /testcase1.txt (3,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699478059.6779733, 'st_mtime': 1699478059.6779733, 'st_atime': 1699478059.6779733, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7fba9bfa3d60>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699478059.6779733, 'st_mtime': 1699478059.6779733, 'st_atime': 1699478059.6779733, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7fba9bfa3d60>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699478059.6779733, 'st_mtime': 1699478059.6779733, 'st_atime': 1699478059.6779733, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699479702.9438562, 'st_mtime': 1699479702.9438562, 'st_atime': 1699479626.1594317, 'st_nlink': 1, 'st_size': 45, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699479702.9438562, 'st_mtime': 1699479702.9438562, 'st_atime': 1699479626.1594317, 'st_nlink': 1, 'st_size': 45, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> open /testcase1.txt (33793,)
+DEBUG:fuse.log-mixin:<- open 4
+DEBUG:fuse.log-mixin:-> flush /testcase1.txt (4,)
+flush called for path: /testcase1.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> getxattr /testcase1.txt ('security.capability',)
+DEBUG:fuse.log-mixin:<- getxattr b''
+DEBUG:fuse.log-mixin:-> write /testcase1.txt (b'append to the same file\n', 45, 4)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testcase1.txt?alt=media HTTP/1.1" 200 45
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 749
+DEBUG:fuse.log-mixin:<- write 24
+DEBUG:fuse.log-mixin:-> flush /testcase1.txt (4,)
+flush called for path: /testcase1.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /testcase1.txt (4,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699478059.6779733, 'st_mtime': 1699478059.6779733, 'st_atime': 1699478059.6779733, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7fba9bfa3d60>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699478059.6779733, 'st_mtime': 1699478059.6779733, 'st_atime': 1699478059.6779733, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7fba9bfa3d60>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699478059.6779733, 'st_mtime': 1699478059.6779733, 'st_atime': 1699478059.6779733, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699479805.2848167, 'st_mtime': 1699479805.2848167, 'st_atime': 1699479626.1594317, 'st_nlink': 1, 'st_size': 69, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> open /testcase1.txt (32768,)
+DEBUG:fuse.log-mixin:<- open 5
+DEBUG:fuse.log-mixin:-> read /testcase1.txt (4096, 0, 5)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testcase1.txt?alt=media HTTP/1.1" 200 69
+DEBUG:fuse.log-mixin:<- read b'this is some content\nthis is another content\nappend to the same file\n'
+DEBUG:fuse.log-mixin:-> flush /testcase1.txt (5,)
+flush called for path: /testcase1.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /testcase1.txt (5,)
+DEBUG:fuse.log-mixin:<- release 0
+
+
+
+Test case2 log -
+Connected to the bucket successfully
+DEBUG:urllib3.util.retry:Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG:google.auth.transport.requests:Making request: POST https://oauth2.googleapis.com/token
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): storage.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /storage/v1/b/praskumabucket/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 5461
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/data.txt?generation=1696735923726523&alt=media HTTP/1.1" 200 7776
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/datqa.txt?generation=1699395310241809&alt=media HTTP/1.1" 200 36
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/hello.txt?generation=1699323891832368&alt=media HTTP/1.1" 200 13
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testcase1.txt?generation=1699479805274469&alt=media HTTP/1.1" 200 69
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testf%2F?generation=1699382196286225&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testf%2Fsample.txt?generation=1699382254877407&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfile1.txt?generation=1699409086150234&alt=media HTTP/1.1" 200 21
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfile3.txt?generation=1699411850807204&alt=media HTTP/1.1" 200 31
+DEBUG:fuse.log-mixin:-> init / ()
+DEBUG:fuse.log-mixin:<- init None
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699481430.2498581, 'st_mtime': 1699481430.2498581, 'st_atime': 1699481430.2498581, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> access / (1,)
+DEBUG:fuse.log-mixin:<- access 0
+DEBUG:fuse.log-mixin:-> getattr /data.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1696735923, 'st_mtime': 1696735923, 'st_atime': 1699481429, 'st_nlink': 1, 'st_size': 7776, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> open /data.txt (32768,)
+DEBUG:fuse.log-mixin:<- open 1
+DEBUG:fuse.log-mixin:-> read /data.txt (8192, 0, 1)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/data.txt?alt=media HTTP/1.1" 200 7776
+DEBUG:fuse.log-mixin:<- read b'c1-10 89\nc1-1 80\nc1-12 32\nc1-20 67\nc1-16 90\nc1-14 92\nc1-4 56\nc1-10 28\nc1-4 34\nc1-4 33\nc1-6 15\nc1-20 31\nc1-11 18\nc1-14 98\nc1-19 79\nc1-7 37\nc1-8 94\nc1-8 18\nc1-16 44\nc1-3 30\nc1-7 92\nc1-5 93\nc1-6 90\nc1-9 83\nc1-19 90\nc1-1 12\nc1-6 93\nc1-15 61\nc1-14 67\nc1-11 23\nc1-18 97\nc1-3 13\nc1-20 95\nc1-10 14\nc1-16 83\nc1-2 68\nc1-9 9\nc1-19 76\nc1-15 48\nc1-9 72\nc1-15 19\nc1-15 28\nc1-14 13\nc1-19 96\nc1-17 94\nc1-8 80\nc1-14 26\nc1-1 86\nc1-19 40\nc1-3 57\nc1-9 74\nc1-15 29\nc1-2 52\nc1-11 31\nc1-2 35\nc1-11 67\nc1-10 52\nc1-12 87\nc1-12 41\nc1-8 65\nc1-16 29\nc1-8 5\nc1-17 98\nc1-9 75\nc1-14 89\nc1-12 3\nc1-6 55\nc1-17 33\nc1-12 97\nc1-3 96\nc1-9 90\nc1-6 43\nc1-11 12\nc1-8 71\nc1-16 50\nc1-18 47\nc1-12 16\nc1-11 7\nc1-17 74\nc1-2 39\nc1-14 13\nc1-12 53\nc1-6 13\nc1-3 72\nc1-9 29\nc1-10 79\nc1-19 12\nc1-18 68\nc1-13 74\nc1-18 54\nc1-3 87\nc1-12 18\nc1-11 58\nc1-1 45\nc1-6 25\nc1-7 7\nc1-1 39\nc1-9 87\nc1-8 93\nc1-14 84\nc1-11 3\nc1-20 39\nc1-15 82\nc1-14 91\nc1-7 96\nc1-18 54\nc1-6 31\nc1-9 7\nc1-14 4\nc1-1 40\nc1-5 52\nc1-2 98\nc1-8 23\nc1-3 9\nc1-18 88\nc1-14 46\nc1-10 79\nc1-14 6\nc1-9 95\nc1-19 95\nc1-12 60\nc1-12 3\nc1-14 21\nc1-9 46\nc1-10 30\nc1-19 8\nc1-18 35\nc1-11 43\nc1-9 77\nc1-12 85\nc1-2 76\nc1-12 42\nc1-12 27\nc1-3 91\nc1-16 74\nc1-1 26\nc1-15 29\nc1-8 62\nc1-4 23\nc1-6 9\nc1-13 38\nc1-11 48\nc1-4 82\nc1-18 58\nc1-15 87\nc1-16 66\nc1-3 23\nc1-4 29\nc1-9 56\nc1-9 37\nc1-18 24\nc1-18 32\nc1-5 85\nc1-7 58\nc1-14 4\nc1-6 10\nc1-7 11\nc1-18 98\nc1-18 39\nc1-16 21\nc1-2 19\nc1-6 86\nc1-15 35\nc1-19 53\nc1-7 42\nc1-9 76\nc1-12 69\nc1-7 32\nc1-18 83\nc1-7 33\nc1-11 95\nc1-1 18\nc1-13 45\nc1-11 90\nc1-5 80\nc1-13 6\nc1-11 75\nc1-20 95\nc1-10 33\nc1-9 35\nc1-10 74\nc1-18 14\nc1-3 73\nc1-20 97\nc1-19 39\nc1-17 35\nc1-5 52\nc1-17 81\nc1-18 37\nc1-18 46\nc1-7 59\nc1-10 55\nc1-20 40\nc1-8 99\nc1-8 12\nc1-13 20\nc1-4 27\nc1-10 33\nc1-8 1\nc1-18 51\nc1-3 90\nc1-11 87\nc1-20 23\nc1-17 58\nc1-4 98\nc1-4 85\nc1-17 21\nc1-18 77\nc1-12 59\nc1-15 5\nc1-11 10\nc1-20 97\nc1-7 37\nc1-17 38\nc1-3 25\nc1-4 79\nc1-16 72\nc1-4 46\nc1-19 51\nc1-13 57\nc1-14 94\nc1-10 96\nc1-5 84\nc1-12 85\nc1-18 80\nc1-1 48\nc1-6 87\nc1-9 24\nc1-10 100\nc1-2 90\nc1-5 94\nc1-9 80\nc1-13 67\nc1-7 37\nc1-1 62\nc1-2 49\nc1-18 85\nc1-7 41\nc1-15 69\nc1-5 42\nc1-11 58\nc1-15 72\nc1-14 63\nc1-16 59\nc1-3 61\nc1-9 11\nc1-15 51\nc1-1 84\nc1-11 11\nc1-19 65\nc1-16 1\nc1-9 59\nc1-1 98\nc1-11 46\nc1-18 97\nc1-1 54\nc1-10 38\nc1-18 13\nc1-11 19\nc1-8 93\nc1-14 19\nc1-1 88\nc1-10 13\nc1-1 52\nc1-16 41\nc1-1 1\nc1-13 64\nc1-13 30\nc1-13 41\nc1-8 64\nc1-6 2\nc1-13 16\nc1-6 44\nc1-16 72\nc1-3 42\nc1-14 11\nc1-6 40\nc1-4 33\nc1-4 46\nc1-16 54\nc1-17 93\nc1-7 24\nc1-10 29\nc1-7 3\nc1-2 11\nc1-1 42\nc1-19 44\nc1-3 75\nc1-20 14\nc1-7 36\nc1-15 27\nc1-6 30\nc1-6 92\nc1-2 27\nc1-15 70\nc1-15 81\nc1-3 60\nc1-19 89\nc1-6 19\nc1-6 29\nc1-18 76\nc1-8 87\nc1-14 89\nc1-20 85\nc1-19 40\nc1-3 68\nc1-6 40\nc1-15 74\nc1-12 42\nc1-10 15\nc1-7 62\nc1-4 54\nc1-7 18\nc1-1 11\nc1-2 59\nc1-12 58\nc1-14 82\nc1-15 74\nc1-5 53\nc1-7 37\nc1-2 24\nc1-9 94\nc1-17 9\nc1-12 34\nc1-16 55\nc1-18 54\nc1-19 95\nc1-11 89\nc1-11 100\nc1-17 41\nc1-20 5\nc1-11 93\nc1-18 47\nc1-18 10\nc1-14 52\nc1-1 98\nc1-10 31\nc1-13 78\nc1-18 38\nc1-17 37\nc1-11 86\nc1-6 54\nc1-9 10\nc1-13 73\nc1-1 35\nc1-8 8\nc1-11 61\nc1-4 37\nc1-19 89\nc1-5 93\nc1-10 58\nc1-18 16\nc1-8 8\nc1-20 42\nc1-8 19\nc1-1 96\nc1-15 74\nc1-16 70\nc1-20 21\nc1-17 33\nc1-3 38\nc1-6 2\nc1-15 43\nc1-12 54\nc1-1 38\nc1-20 53\nc1-12 65\nc1-2 14\nc1-10 62\nc1-7 21\nc1-7 92\nc1-2 13\nc1-8 61\nc1-17 27\nc1-19 56\nc1-10 45\nc1-6 3\nc1-6 29\nc1-17 98\nc1-12 54\nc1-17 68\nc1-18 4\nc1-11 88\nc1-4 53\nc1-12 19\nc1-3 44\nc1-18 100\nc1-2 74\nc1-1 68\nc1-8 30\nc1-4 21\nc1-20 35\nc1-17 57\nc1-20 44\nc1-17 86\nc1-5 79\nc1-13 59\nc1-6 2\nc1-4 62\nc1-15 9\nc1-20 7\nc1-2 49\nc1-2 45\nc1-6 82\nc1-4 94\nc1-1 76\nc1-8 84\nc1-5 89\nc1-18 34\nc1-4 79\nc1-2 10\nc1-11 61\nc1-6 47\nc1-6 46\nc1-12 36\nc1-6 37\nc1-14 37\nc1-16 69\nc1-18 6\nc1-8 43\nc1-19 100\nc1-20 64\nc1-19 59\nc1-19 12\nc1-11 60\nc1-5 32\nc1-13 62\nc1-6 62\nc1-5 19\nc1-14 95\nc1-6 63\nc1-20 46\nc1-9 30\nc1-2 15\nc1-9 69\nc1-7 83\nc1-19 60\nc1-18 72\nc1-9 67\nc1-3 33\nc1-20 76\nc1-12 8\nc1-11 50\nc1-9 42\nc1-15 3\nc1-16 59\nc1-2 77\nc1-18 53\nc1-17 35\nc1-3 41\nc1-10 76\nc1-7 80\nc1-4 18\nc1-7 21\nc1-14 66\nc1-4 29\nc1-10 69\nc1-20 67\nc1-6 14\nc1-20 26\nc1-5 78\nc1-11 90\nc1-5 16\nc1-20 55\nc1-2 84\nc1-4 83\nc1-16 100\nc1-1 83\nc1-2 31\nc1-13 11\nc1-2 55\nc1-1 41\nc1-8 93\nc1-1 29\nc1-19 70\nc1-10 80\nc1-6 3\nc1-17 33\nc1-3 11\nc1-16 7\nc1-6 45\nc1-8 39\nc1-17 95\nc1-1 97\nc1-4 13\nc1-9 26\nc1-6 30\nc1-20 20\nc1-20 22\nc1-5 17\nc1-13 56\nc1-10 58\nc1-6 21\nc1-3 93\nc1-7 73\nc1-2 39\nc1-15 39\nc1-2 35\nc1-3 61\nc1-9 67\nc1-15 17\nc1-11 10\nc1-3 82\nc1-13 58\nc1-3 7\nc1-8 75\nc1-16 15\nc1-3 38\nc1-16 50\nc1-1 2\nc1-14 60\nc1-18 14\nc1-7 21\nc1-1 61\nc1-12 98\nc1-19 93\nc1-20 40\nc1-7 32\nc1-10 93\nc1-9 53\nc1-11 10\nc1-6 47\nc1-1 74\nc1-4 55\nc1-14 57\nc1-7 68\nc1-4 32\nc1-17 92\nc1-5 85\nc1-12 23\nc1-14 27\nc1-7 98\nc1-10 23\nc1-12 73\nc1-5 71\nc1-8 90\nc1-1 95\nc1-15 63\nc1-9 26\nc1-1 59\nc1-2 63\nc1-7 90\nc1-13 54\nc1-7 85\nc1-18 94\nc1-15 74\nc1-3 17\nc1-11 55\nc1-16 42\nc1-12 47\nc1-17 98\nc1-9 37\nc1-2 27\nc1-8 36\nc1-14 78\nc1-3 93\nc1-7 58\nc1-14 18\nc1-18 75\nc1-9 45\nc1-11 26\nc1-11 92\nc1-20 32\nc1-2 8\nc1-13 18\nc1-6 29\nc1-20 86\nc1-9 14\nc1-7 47\nc1-19 84\nc1-12 73\nc1-18 31\nc1-10 53\nc1-6 53\nc1-2 18\nc1-16 98\nc1-18 25\nc1-19 4\nc1-14 30\nc1-2 43\nc1-10 54\nc1-5 75\nc1-9 83\nc1-6 34\nc1-2 92\nc1-2 23\nc1-14 20\nc1-10 54\nc1-12 63\nc1-14 31\nc1-16 45\nc1-16 35\nc1-17 98\nc1-5 84\nc1-2 26\nc1-10 33\nc1-17 69\nc1-16 52\nc1-15 34\nc1-9 48\nc1-2 83\nc1-7 32\nc1-11 9\nc1-11 2\nc1-15 83\nc1-10 37\nc1-17 21\nc1-20 93\nc1-10 6\nc1-9 53\nc1-13 47\nc1-4 19\nc1-1 95\nc1-13 75\nc1-10 16\nc1-11 8\nc1-10 27\nc1-15 100\nc1-9 71\nc1-2 69\nc1-3 85\nc1-6 49\nc1-4 75\nc1-2 91\nc1-2 81\nc1-7 87\nc1-20 19\nc1-13 40\nc1-14 74\nc1-5 45\nc1-3 7\nc1-17 94\nc1-17 40\nc1-3 27\nc1-19 4\nc1-17 62\nc1-17 84\nc1-15 36\nc1-6 10\nc1-16 8\nc1-20 57\nc1-5 16\nc1-4 69\nc1-13 48\nc1-3 69\nc1-10 59\nc1-12 35\nc1-15 30\nc1-4 40\nc1-12 72\nc1-11 83\nc1-18 82\nc1-11 17\nc1-4 21\nc1-1 8\nc1-11 58\nc1-18 57\nc1-5 2\nc1-4 75\nc1-7 36\nc1-10 19\nc1-12 69\nc1-7 21\nc1-1 7\nc1-20 31\nc1-20 69\nc1-12 30\nc1-14 93\nc1-14 78\nc1-20 5\nc1-1 26\nc1-14 72\nc1-20 63\nc1-5 63\nc1-2 47\nc1-9 33\nc1-18 5\nc1-13 68\nc1-13 66\nc1-13 10\nc1-16 52\nc1-4 39\nc1-14 21\nc1-17 87\nc1-3 6\nc1-1 15\nc1-15 85\nc1-17 47\nc1-19 61\nc1-20 52\nc1-14 11\nc1-19 75\nc1-3 85\nc1-6 7\nc1-19 58\nc1-5 17\nc1-1 49\nc1-16 39\nc1-13 45\nc1-18 70\nc1-11 93\nc1-5 90\nc1-9 67\nc1-5 93\nc1-4 53\nc1-4 82\nc1-4 87\nc1-15 53\nc1-7 81\nc1-18 81\nc1-5 59\nc1-16 44\nc1-13 18\nc1-20 64\nc1-5 68\nc1-2 62\nc1-5 30\nc1-5 32\nc1-19 1\nc1-14 55\nc1-18 8\nc1-19 7\nc1-4 16\nc1-12 100\nc1-19 49\nc1-13 32\nc1-20 39\nc1-6 58\nc1-7 59\nc1-20 63\nc1-11 50\nc1-1 20\nc1-8 68\nc1-4 88\nc1-8 27\nc1-5 65\nc1-1 45\nc1-2 81\nc1-2 31\nc1-16 11\nc1-13 5\nc1-1 21\nc1-14 17\nc1-6 25\nc1-14 40\nc1-2 17\nc1-12 9\nc1-20 31\nc1-1 87\nc1-20 83\nc1-3 25\nc1-7 39\nc1-15 100\nc1-4 40\nc1-18 14\nc1-10 14\nc1-12 8\nc1-14 53\nc1-13 46\nc1-3 14\nc1-1 84\nc1-18 28\nc1-8 93\nc1-6 22\nc1-9 63\nc1-11 61\nc1-6 66\nc1-12 87\nc1-13 76\nc1-1 8\nc1-1 86\nc1-8 30\nc1-8 49\nc1-15 68\nc1-14 55\nc1-1 87\nc1-4 56\nc1-12 47\nc1-18 46\nc1-10 36\nc1-5 34\nc1-6 97\nc1-6 100\nc1-11 29\nc1-12 60\nc1-15 78\nc1-1 61\nc1-8 76\nc1-14 81\nc1-5 16\nc1-10 21\nc1-14 87\nc1-10 60\nc1-8 59\nc1-11 74\nc1-12 84\nc1-12 53\nc1-17 29\nc1-8 69\nc1-2 48\nc1-5 2\nc1-3 38\nc1-3 27\nc1-7 11\nc1-20 89\nc1-17 82\nc1-3 26\nc1-16 47\nc1-12 64\nc1-2 84\nc1-16 55\nc1-5 67\nc1-17 25\nc1-15 92\nc1-15 70\nc1-13 44\nc1-5 18\nc1-9 55\nc1-2 38\nc1-7 9\nc1-12 27\nc1-18 97\nc1-3 94\nc1-3 14\nc1-11 66\nc1-6 25\nc1-1 32\nc1-6 31\nc1-20 88\nc1-2 6\nc1-11 2\nc1-3 38\nc1-13 9\nc1-12 73\nc1-13 1\nc1-6 15\nc1-11 41\nc1-14 2\nc1-3 97\nc1-3 11\nc1-17 39\nc1-10 61\nc1-8 32\nc1-2 56\nc1-20 59\nc1-10 40\nc1-8 91\nc1-9 48\nc1-3 7\nc1-3 24\nc1-10 45\nc1-18 32\nc1-12 85\nc1-9 28\nc1-16 99\nc1-20 100\nc1-3 46\nc1-12 51\nc1-8 67\nc1-19 92\nc1-8 93\nc1-11 89\nc1-11 12\nc1-19 20\nc1-18 3\nc1-10 38\nc1-13 75\nc1-16 41\nc1-3 35\nc1-12 28\nc1-9 92\nc1-10 36\nc1-15 86\nc1-12 98\nc1-14 64\nc1-15 5\nc1-3 61\nc1-9 15\nc1-2 33\nc1-1 35\nc1-13 32\nc1-20 59\nc1-18 52\nc1-1 80\nc1-12 95\nc1-16 26\nc1-12 36\nc1-15 87\nc1-1 1\nc1-17 42\nc1-20 20\nc1-9 8\nc1-3 11\nc1-7 18\nc1-15 28\nc1-16 44\nc1-7 81\nc1-5 92\nc1-16 62\nc1-8 62\nc1-12 7\nc1-4 45\nc1-17 37\nc1-8 51\nc1-17 65\nc1-9 88\nc1-10 73\nc1-14 54\nc1-13 49\nc1-13 15\nc1-5 26\nc1-18 50\nc1-18 18\nc1-7 95\nc1-2 8\nc1-16 66\nc1-11 27\nc1-1 18'
+DEBUG:fuse.log-mixin:-> flush /data.txt (1,)
+flush called for path: /data.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /data.txt (1,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699481430.2498581, 'st_mtime': 1699481430.2498581, 'st_atime': 1699481430.2498581, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699481430.2498581, 'st_mtime': 1699481430.2498581, 'st_atime': 1699481430.2498581, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> destroy / ()
+DEBUG:fuse.log-mixin:<- destroy None
+
+
+
+
+Test case3 log -
+prashulkumar@praskumainstance2:~$ python3 testfuse5.py /home/prashulkumar/my_mount_point
+Connected to the bucket successfully
+DEBUG:urllib3.util.retry:Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG:google.auth.transport.requests:Making request: POST https://oauth2.googleapis.com/token
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): storage.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /storage/v1/b/praskumabucket/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 5461
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/data.txt?generation=1696735923726523&alt=media HTTP/1.1" 200 7776
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/datqa.txt?generation=1699395310241809&alt=media HTTP/1.1" 200 36
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/hello.txt?generation=1699323891832368&alt=media HTTP/1.1" 200 13
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testcase1.txt?generation=1699479805274469&alt=media HTTP/1.1" 200 69
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testf%2F?generation=1699382196286225&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testf%2Fsample.txt?generation=1699382254877407&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfile1.txt?generation=1699409086150234&alt=media HTTP/1.1" 200 21
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfile3.txt?generation=1699411850807204&alt=media HTTP/1.1" 200 31
+DEBUG:fuse.log-mixin:-> init / ()
+DEBUG:fuse.log-mixin:<- init None
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699482920.0202713, 'st_mtime': 1699482920.0202713, 'st_atime': 1699482920.0202713, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> access / (1,)
+DEBUG:fuse.log-mixin:<- access 0
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> mkdir /testfolder (493,)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 744
+DEBUG:fuse.log-mixin:<- mkdir None
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699482920.0202713, 'st_mtime': 1699482920.0202713, 'st_atime': 1699482920.0202713, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f5e7ee0eeb0>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699482920.0202713, 'st_mtime': 1699482920.0202713, 'st_atime': 1699482920.0202713, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699479805, 'st_mtime': 1699479805, 'st_atime': 1699482919, 'st_nlink': 1, 'st_size': 69, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testf (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699382196, 'st_mtime': 1699382196, 'st_atime': 1699482919, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699409086, 'st_mtime': 1699409086, 'st_atime': 1699482919, 'st_nlink': 1, 'st_size': 21, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile3.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699411850, 'st_mtime': 1699411850, 'st_atime': 1699482920, 'st_nlink': 1, 'st_size': 31, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699482920.0202713, 'st_mtime': 1699482920.0202713, 'st_atime': 1699482920.0202713, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f5e7ee0eeb0>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699482920.0202713, 'st_mtime': 1699482920.0202713, 'st_atime': 1699482920.0202713, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699482920.0202713, 'st_mtime': 1699482920.0202713, 'st_atime': 1699482920.0202713, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> access /testfolder (1,)
+DEBUG:fuse.log-mixin:<- access 0
+DEBUG:fuse.log-mixin:-> getattr /testfolder/subtestfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> mkdir /testfolder/subtestfolder (493,)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 804
+DEBUG:fuse.log-mixin:<- mkdir None
+DEBUG:fuse.log-mixin:-> getattr /testfolder/subtestfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483124.1906664, 'st_mtime': 1699483124.1906664, 'st_atime': 1699483124.1906667, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder/file1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> create /testfolder/file1.txt (33188,)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 780
+DEBUG:fuse.log-mixin:<- create 1
+DEBUG:fuse.log-mixin:-> getattr /testfolder/file1.txt (1,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699483142.1729386, 'st_mtime': 1699483142.1729386, 'st_atime': 1699483142.1729388, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testfolder/file1.txt (1,)
+flush called for path: /testfolder/file1.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> utimens /testfolder/file1.txt ((1699483142.1665452, 1699483142.1665452),)
+DEBUG:fuse.log-mixin:<- utimens 0
+DEBUG:fuse.log-mixin:-> getattr /testfolder/file1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699483142.1729386, 'st_mtime': 1699483142.1729386, 'st_atime': 1699483142.1729388, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testfolder/file1.txt (1,)
+flush called for path: /testfolder/file1.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /testfolder/file1.txt (1,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> getattr /testfolder/file2.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> create /testfolder/file2.txt (33188,)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 780
+DEBUG:fuse.log-mixin:<- create 2
+DEBUG:fuse.log-mixin:-> getattr /testfolder/file2.txt (2,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699483147.1789443, 'st_mtime': 1699483147.1789443, 'st_atime': 1699483147.1789446, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testfolder/file2.txt (2,)
+flush called for path: /testfolder/file2.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> utimens /testfolder/file2.txt ((1699483147.1745405, 1699483147.1745405),)
+DEBUG:fuse.log-mixin:<- utimens 0
+DEBUG:fuse.log-mixin:-> getattr /testfolder/file2.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699483147.1789443, 'st_mtime': 1699483147.1789443, 'st_atime': 1699483147.1789446, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testfolder/file2.txt (2,)
+flush called for path: /testfolder/file2.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /testfolder/file2.txt (2,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> opendir /testfolder ()
+opendir accessed for path: /testfolder
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir /testfolder (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f5e7ed0ff90>
+DEBUG:fuse.log-mixin:-> getattr /testfolder/subtestfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483124.1906664, 'st_mtime': 1699483124.1906664, 'st_atime': 1699483124.1906667, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder/file1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699483142.1729386, 'st_mtime': 1699483142.1729386, 'st_atime': 1699483142.1729388, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder/file2.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699483147.1789443, 'st_mtime': 1699483147.1789443, 'st_atime': 1699483147.1789446, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> releasedir /testfolder (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> opendir /testfolder ()
+opendir accessed for path: /testfolder
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir /testfolder (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f5e7ed0ff90>
+DEBUG:fuse.log-mixin:-> releasedir /testfolder (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699482920.0202713, 'st_mtime': 1699482920.0202713, 'st_atime': 1699482920.0202713, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder/subtestfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483124.1906664, 'st_mtime': 1699483124.1906664, 'st_atime': 1699483124.1906667, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> rmdir /testfolder/subtestfolder ()
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "DELETE /storage/v1/b/praskumabucket/o/testfolder%2Fsubtestfolder%2F?prettyPrint=false HTTP/1.1" 204 0
+DEBUG:fuse.log-mixin:<- rmdir None
+DEBUG:fuse.log-mixin:-> opendir /testfolder ()
+opendir accessed for path: /testfolder
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir /testfolder (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f5e7ed0ff90>
+DEBUG:fuse.log-mixin:-> getattr /testfolder/file1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699483142.1729386, 'st_mtime': 1699483142.1729386, 'st_atime': 1699483142.1729388, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder/file2.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699483147.1789443, 'st_mtime': 1699483147.1789443, 'st_atime': 1699483147.1789446, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> releasedir /testfolder (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699482920.0202713, 'st_mtime': 1699482920.0202713, 'st_atime': 1699482920.0202713, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> access / (1,)
+DEBUG:fuse.log-mixin:<- access 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699482920.0202713, 'st_mtime': 1699482920.0202713, 'st_atime': 1699482920.0202713, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f5e7ed0ff90>
+DEBUG:fuse.log-mixin:-> getattr /data.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1696735923, 'st_mtime': 1696735923, 'st_atime': 1699482919, 'st_nlink': 1, 'st_size': 7776, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /datqa.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699395310, 'st_mtime': 1699395310, 'st_atime': 1699482919, 'st_nlink': 1, 'st_size': 36, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /hello.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699323891, 'st_mtime': 1699323891, 'st_atime': 1699482919, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699479805, 'st_mtime': 1699479805, 'st_atime': 1699482919, 'st_nlink': 1, 'st_size': 69, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testf (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699382196, 'st_mtime': 1699382196, 'st_atime': 1699482919, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699409086, 'st_mtime': 1699409086, 'st_atime': 1699482919, 'st_nlink': 1, 'st_size': 21, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile3.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699411850, 'st_mtime': 1699411850, 'st_atime': 1699482920, 'st_nlink': 1, 'st_size': 31, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699482920.0202713, 'st_mtime': 1699482920.0202713, 'st_atime': 1699482920.0202713, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f5e7ed0ff90>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699482920.0202713, 'st_mtime': 1699482920.0202713, 'st_atime': 1699482920.0202713, 'st_nlink': 3, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023.2785578, 'st_mtime': 1699483023.2785578, 'st_atime': 1699483023.2785578, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> rmdir /testfolder ()
+Not Empty
+DEBUG:fuse.log-mixin:<- rmdir '[Errno 39] Directory not empty'
+DEBUG:fuse:FUSE operation rmdir raised a <class 'fuse.FuseOSError'>, returning errno 39.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 796, in rmdir
+    return self.operations('rmdir', path.decode(self.encoding))
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 249, in rmdir
+    raise FuseOSError(ENOTEMPTY) # If directory not empty, then not deleting
+fuse.FuseOSError: [Errno 39] Directory not empty
+
+
+
+Test case4 log-
+prashulkumar@praskumainstance2:~$ python3 testfuse5.py /home/prashulkumar/my_mount_point
+Connected to the bucket successfully
+DEBUG:urllib3.util.retry:Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG:google.auth.transport.requests:Making request: POST https://oauth2.googleapis.com/token
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): storage.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /storage/v1/b/praskumabucket/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 7558
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/data.txt?generation=1696735923726523&alt=media HTTP/1.1" 200 7776
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/datqa.txt?generation=1699395310241809&alt=media HTTP/1.1" 200 36
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/hello.txt?generation=1699323891832368&alt=media HTTP/1.1" 200 13
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testcase1.txt?generation=1699479805274469&alt=media HTTP/1.1" 200 69
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testf%2F?generation=1699382196286225&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testf%2Fsample.txt?generation=1699382254877407&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfile1.txt?generation=1699409086150234&alt=media HTTP/1.1" 200 21
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfile3.txt?generation=1699411850807204&alt=media HTTP/1.1" 200 31
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfolder%2F?generation=1699483023270764&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfolder%2Ffile1.txt?generation=1699483142165792&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfolder%2Ffile2.txt?generation=1699483147172958&alt=media HTTP/1.1" 200 0
+DEBUG:fuse.log-mixin:-> init / ()
+DEBUG:fuse.log-mixin:<- init None
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699485524.2511048, 'st_mtime': 1699485524.2511048, 'st_atime': 1699485524.2511048, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> access / (1,)
+DEBUG:fuse.log-mixin:<- access 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699485524.2511048, 'st_mtime': 1699485524.2511048, 'st_atime': 1699485524.2511048, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f05382bda50>
+DEBUG:fuse.log-mixin:-> getattr /data.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1696735923, 'st_mtime': 1696735923, 'st_atime': 1699485523, 'st_nlink': 1, 'st_size': 7776, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /datqa.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699395310, 'st_mtime': 1699395310, 'st_atime': 1699485523, 'st_nlink': 1, 'st_size': 36, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /hello.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699323891, 'st_mtime': 1699323891, 'st_atime': 1699485523, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699479805, 'st_mtime': 1699479805, 'st_atime': 1699485524, 'st_nlink': 1, 'st_size': 69, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testf (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699382196, 'st_mtime': 1699382196, 'st_atime': 1699485524, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699409086, 'st_mtime': 1699409086, 'st_atime': 1699485524, 'st_nlink': 1, 'st_size': 21, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile3.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699411850, 'st_mtime': 1699411850, 'st_atime': 1699485524, 'st_nlink': 1, 'st_size': 31, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023, 'st_mtime': 1699483023, 'st_atime': 1699485524, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr /file10.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> create /file10.txt (33188,)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 736
+DEBUG:fuse.log-mixin:<- create 1
+DEBUG:fuse.log-mixin:-> getattr /file10.txt (1,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485584.7267823, 'st_mtime': 1699485584.7267823, 'st_atime': 1699485584.7267823, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /file10.txt (1,)
+flush called for path: /file10.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> utimens /file10.txt ((1699485584.7243135, 1699485584.7243135),)
+DEBUG:fuse.log-mixin:<- utimens 0
+DEBUG:fuse.log-mixin:-> getattr /file10.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485584.7267823, 'st_mtime': 1699485584.7267823, 'st_atime': 1699485584.7267823, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /file10.txt (1,)
+flush called for path: /file10.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /file10.txt (1,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699485524.2511048, 'st_mtime': 1699485524.2511048, 'st_atime': 1699485524.2511048, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f05382bda50>
+DEBUG:fuse.log-mixin:-> getattr /data.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1696735923, 'st_mtime': 1696735923, 'st_atime': 1699485523, 'st_nlink': 1, 'st_size': 7776, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /datqa.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699395310, 'st_mtime': 1699395310, 'st_atime': 1699485523, 'st_nlink': 1, 'st_size': 36, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /hello.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699323891, 'st_mtime': 1699323891, 'st_atime': 1699485523, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699479805, 'st_mtime': 1699479805, 'st_atime': 1699485524, 'st_nlink': 1, 'st_size': 69, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testf (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699382196, 'st_mtime': 1699382196, 'st_atime': 1699485524, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699409086, 'st_mtime': 1699409086, 'st_atime': 1699485524, 'st_nlink': 1, 'st_size': 21, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile3.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699411850, 'st_mtime': 1699411850, 'st_atime': 1699485524, 'st_nlink': 1, 'st_size': 31, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023, 'st_mtime': 1699483023, 'st_atime': 1699485524, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /file10.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485584.7267823, 'st_mtime': 1699485584.7267823, 'st_atime': 1699485584.7267823, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699485524.2511048, 'st_mtime': 1699485524.2511048, 'st_atime': 1699485524.2511048, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f05382bda50>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699485524.2511048, 'st_mtime': 1699485524.2511048, 'st_atime': 1699485524.2511048, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /file10.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485584.7267823, 'st_mtime': 1699485584.7267823, 'st_atime': 1699485584.7267823, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /file10.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485584.7267823, 'st_mtime': 1699485584.7267823, 'st_atime': 1699485584.7267823, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699485524.2511048, 'st_mtime': 1699485524.2511048, 'st_atime': 1699485524.2511048, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> access / (1,)
+DEBUG:fuse.log-mixin:<- access 0
+DEBUG:fuse.log-mixin:-> access / (2,)
+DEBUG:fuse.log-mixin:<- access 0
+DEBUG:fuse.log-mixin:-> getattr /.file10.txt.swp (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> getattr /.file10.txt.swp (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> getattr /.file10.txt.swp (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> create /.file10.txt.swp (33188,)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 756
+DEBUG:fuse.log-mixin:<- create 2
+DEBUG:fuse.log-mixin:-> getattr /.file10.txt.swp (2,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485626.6934612, 'st_mtime': 1699485626.6934612, 'st_atime': 1699485626.6934612, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getxattr /.file10.txt.swp ('security.capability',)
+DEBUG:fuse.log-mixin:<- getxattr b''
+DEBUG:fuse.log-mixin:-> write /.file10.txt.swp (b'b0nano 5.4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x1an\x00\x00prashulkumar\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00praskumainstance2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00file10.txt\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', 0, 2)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/.file10.txt.swp?alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 759
+DEBUG:fuse.log-mixin:<- write 1024
+DEBUG:fuse.log-mixin:-> flush /.file10.txt.swp (2,)
+flush called for path: /.file10.txt.swp
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /.file10.txt.swp (2,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> open /file10.txt (32768,)
+DEBUG:fuse.log-mixin:<- open 3
+DEBUG:fuse.log-mixin:-> read /file10.txt (4096, 0, 3)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/file10.txt?alt=media HTTP/1.1" 200 0
+DEBUG:fuse.log-mixin:<- read b''
+DEBUG:fuse.log-mixin:-> flush /file10.txt (3,)
+flush called for path: /file10.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> access /file10.txt (2,)
+DEBUG:fuse.log-mixin:<- access 0
+DEBUG:fuse.log-mixin:-> release /file10.txt (3,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> getattr /file10.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485584.7267823, 'st_mtime': 1699485584.7267823, 'st_atime': 1699485584.7267823, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /.file10.txt.swp (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485626.794754, 'st_mtime': 1699485626.794754, 'st_atime': 1699485626.6934612, 'st_nlink': 1, 'st_size': 1024, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> unlink /.file10.txt.swp ()
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "DELETE /storage/v1/b/praskumabucket/o/.file10.txt.swp?prettyPrint=false HTTP/1.1" 204 0
+DEBUG:fuse.log-mixin:<- unlink None
+DEBUG:fuse.log-mixin:-> getattr /.file10.txt.swp (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> create /.file10.txt.swp (33188,)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 756
+DEBUG:fuse.log-mixin:<- create 4
+DEBUG:fuse.log-mixin:-> getattr /.file10.txt.swp (4,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485683.3559892, 'st_mtime': 1699485683.3559895, 'st_atime': 1699485683.3559895, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getxattr /.file10.txt.swp ('security.capability',)
+DEBUG:fuse.log-mixin:<- getxattr b''
+DEBUG:fuse.log-mixin:-> write /.file10.txt.swp (b'b0nano 5.4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x1an\x00\x00prashulkumar\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00praskumainstance2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00file10.txt\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00U\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', 0, 4)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/.file10.txt.swp?alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 759
+DEBUG:fuse.log-mixin:<- write 1024
+DEBUG:fuse.log-mixin:-> flush /.file10.txt.swp (4,)
+flush called for path: /.file10.txt.swp
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /.file10.txt.swp (4,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> getattr /file10.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485584.7267823, 'st_mtime': 1699485584.7267823, 'st_atime': 1699485584.7267823, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> open /file10.txt (32769,)
+DEBUG:fuse.log-mixin:<- open 5
+DEBUG:fuse.log-mixin:-> getxattr /file10.txt ('security.capability',)
+DEBUG:fuse.log-mixin:<- getxattr b''
+DEBUG:fuse.log-mixin:-> truncate /file10.txt (0,)
+DEBUG:fuse.log-mixin:<- truncate None
+DEBUG:fuse.log-mixin:-> getattr /file10.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485584.7267823, 'st_mtime': 1699485584.7267823, 'st_atime': 1699485584.7267823, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getxattr /file10.txt ('security.capability',)
+DEBUG:fuse.log-mixin:<- getxattr b''
+DEBUG:fuse.log-mixin:-> write /file10.txt (b'abcd\npqrs\n\n', 0, 5)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/file10.txt?alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 737
+DEBUG:fuse.log-mixin:<- write 11
+DEBUG:fuse.log-mixin:-> fsync /file10.txt (0, 5)
+fsync called for path: /file10.txt, fdatasync: 0, fh: 5
+DEBUG:fuse.log-mixin:<- fsync 0
+DEBUG:fuse.log-mixin:-> flush /file10.txt (5,)
+flush called for path: /file10.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /file10.txt (5,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> getattr /file10.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485707.1988409, 'st_mtime': 1699485707.1988409, 'st_atime': 1699485584.7267823, 'st_nlink': 1, 'st_size': 11, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /.file10.txt.swp (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699485683.4454625, 'st_mtime': 1699485683.4454625, 'st_atime': 1699485683.3559895, 'st_nlink': 1, 'st_size': 1024, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> unlink /.file10.txt.swp ()
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "DELETE /storage/v1/b/praskumabucket/o/.file10.txt.swp?prettyPrint=false HTTP/1.1" 204 0
+DEBUG:fuse.log-mixin:<- unlink None
+
+
+
+
+
+Test case5 log-
+prashulkumar@praskumainstance2:~$ python3 testfuse5.py /home/prashulkumar/my_mount_point
+Connected to the bucket successfully
+DEBUG:urllib3.util.retry:Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG:google.auth.transport.requests:Making request: POST https://oauth2.googleapis.com/token
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): storage.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /storage/v1/b/praskumabucket/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 7558
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/data.txt?generation=1696735923726523&alt=media HTTP/1.1" 200 7776
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/datqa.txt?generation=1699395310241809&alt=media HTTP/1.1" 200 36
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/hello.txt?generation=1699323891832368&alt=media HTTP/1.1" 200 13
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testcase1.txt?generation=1699479805274469&alt=media HTTP/1.1" 200 69
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testf%2F?generation=1699382196286225&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testf%2Fsample.txt?generation=1699382254877407&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfile1.txt?generation=1699409086150234&alt=media HTTP/1.1" 200 21
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfile3.txt?generation=1699411850807204&alt=media HTTP/1.1" 200 31
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfolder%2F?generation=1699483023270764&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfolder%2Ffile1.txt?generation=1699483142165792&alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testfolder%2Ffile2.txt?generation=1699483147172958&alt=media HTTP/1.1" 200 0
+DEBUG:fuse.log-mixin:-> init / ()
+DEBUG:fuse.log-mixin:<- init None
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> access / (1,)
+DEBUG:fuse.log-mixin:<- access 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f52b3253a50>
+DEBUG:fuse.log-mixin:-> getattr /data.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1696735923, 'st_mtime': 1696735923, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 7776, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /datqa.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699395310, 'st_mtime': 1699395310, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 36, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /hello.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699323891, 'st_mtime': 1699323891, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699479805, 'st_mtime': 1699479805, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 69, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testf (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699382196, 'st_mtime': 1699382196, 'st_atime': 1699486545, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699409086, 'st_mtime': 1699409086, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 21, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile3.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699411850, 'st_mtime': 1699411850, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 31, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023, 'st_mtime': 1699483023, 'st_atime': 1699486545, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr /testcase5.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> create /testcase5.txt (33188,)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 748
+DEBUG:fuse.log-mixin:<- create 1
+DEBUG:fuse.log-mixin:-> getattr /testcase5.txt (1,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486586.375345, 'st_mtime': 1699486586.3753452, 'st_atime': 1699486586.3753452, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testcase5.txt (1,)
+flush called for path: /testcase5.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> utimens /testcase5.txt ((1699486586.3713994, 1699486586.3713994),)
+DEBUG:fuse.log-mixin:<- utimens 0
+DEBUG:fuse.log-mixin:-> getattr /testcase5.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486586.375345, 'st_mtime': 1699486586.3753452, 'st_atime': 1699486586.3753452, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testcase5.txt (1,)
+flush called for path: /testcase5.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /testcase5.txt (1,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f52b3253a50>
+DEBUG:fuse.log-mixin:-> getattr /data.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1696735923, 'st_mtime': 1696735923, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 7776, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /datqa.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699395310, 'st_mtime': 1699395310, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 36, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /hello.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699323891, 'st_mtime': 1699323891, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699479805, 'st_mtime': 1699479805, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 69, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testf (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699382196, 'st_mtime': 1699382196, 'st_atime': 1699486545, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699409086, 'st_mtime': 1699409086, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 21, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile3.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699411850, 'st_mtime': 1699411850, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 31, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023, 'st_mtime': 1699483023, 'st_atime': 1699486545, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase5.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486586.375345, 'st_mtime': 1699486586.3753452, 'st_atime': 1699486586.3753452, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f52b3253a50>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase5.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486586.375345, 'st_mtime': 1699486586.3753452, 'st_atime': 1699486586.3753452, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> unlink /testcase5.txt ()
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "DELETE /storage/v1/b/praskumabucket/o/testcase5.txt?prettyPrint=false HTTP/1.1" 204 0
+DEBUG:fuse.log-mixin:<- unlink None
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f52b3253a50>
+DEBUG:fuse.log-mixin:-> getattr /data.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1696735923, 'st_mtime': 1696735923, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 7776, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /datqa.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699395310, 'st_mtime': 1699395310, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 36, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /hello.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699323891, 'st_mtime': 1699323891, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699479805, 'st_mtime': 1699479805, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 69, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testf (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699382196, 'st_mtime': 1699382196, 'st_atime': 1699486545, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699409086, 'st_mtime': 1699409086, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 21, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile3.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699411850, 'st_mtime': 1699411850, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 31, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023, 'st_mtime': 1699483023, 'st_atime': 1699486545, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr /testrename.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> create /testrename.txt (33188,)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 752
+DEBUG:fuse.log-mixin:<- create 2
+DEBUG:fuse.log-mixin:-> getattr /testrename.txt (2,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486664.9519567, 'st_mtime': 1699486664.951957, 'st_atime': 1699486664.951957, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testrename.txt (2,)
+flush called for path: /testrename.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> utimens /testrename.txt ((1699486664.9473276, 1699486664.9473276),)
+DEBUG:fuse.log-mixin:<- utimens 0
+DEBUG:fuse.log-mixin:-> getattr /testrename.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486664.9519567, 'st_mtime': 1699486664.951957, 'st_atime': 1699486664.951957, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testrename.txt (2,)
+flush called for path: /testrename.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /testrename.txt (2,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f52b3253a50>
+DEBUG:fuse.log-mixin:-> getattr /data.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1696735923, 'st_mtime': 1696735923, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 7776, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /datqa.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699395310, 'st_mtime': 1699395310, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 36, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /hello.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699323891, 'st_mtime': 1699323891, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699479805, 'st_mtime': 1699479805, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 69, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testf (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699382196, 'st_mtime': 1699382196, 'st_atime': 1699486545, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699409086, 'st_mtime': 1699409086, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 21, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile3.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699411850, 'st_mtime': 1699411850, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 31, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023, 'st_mtime': 1699483023, 'st_atime': 1699486545, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testrename.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486664.9519567, 'st_mtime': 1699486664.951957, 'st_atime': 1699486664.951957, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f52b3253a50>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testrename.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486664.9519567, 'st_mtime': 1699486664.951957, 'st_atime': 1699486664.951957, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> open /testrename.txt (32769,)
+DEBUG:fuse.log-mixin:<- open 3
+DEBUG:fuse.log-mixin:-> getxattr /testrename.txt ('security.capability',)
+DEBUG:fuse.log-mixin:<- getxattr b''
+DEBUG:fuse.log-mixin:-> truncate /testrename.txt (0,)
+DEBUG:fuse.log-mixin:<- truncate None
+DEBUG:fuse.log-mixin:-> getattr /testrename.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486664.9519567, 'st_mtime': 1699486664.951957, 'st_atime': 1699486664.951957, 'st_nlink': 1, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> flush /testrename.txt (3,)
+flush called for path: /testrename.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> getxattr /testrename.txt ('security.capability',)
+DEBUG:fuse.log-mixin:<- getxattr b''
+DEBUG:fuse.log-mixin:-> write /testrename.txt (b'some content\n', 0, 3)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testrename.txt?alt=media HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 753
+DEBUG:fuse.log-mixin:<- write 13
+DEBUG:fuse.log-mixin:-> flush /testrename.txt (3,)
+flush called for path: /testrename.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /testrename.txt (3,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f52b3167040>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testrename.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486680.8254697, 'st_mtime': 1699486680.8254697, 'st_atime': 1699486664.951957, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testrename.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486680.8254697, 'st_mtime': 1699486680.8254697, 'st_atime': 1699486664.951957, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testnewname.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> getattr /testnewname.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> getattr /testnewname.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> rename /testrename.txt ('/testnewname.txt',)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testrename.txt?alt=media HTTP/1.1" 200 13
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "POST /upload/storage/v1/b/praskumabucket/o?uploadType=multipart HTTP/1.1" 200 757
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "DELETE /storage/v1/b/praskumabucket/o/testrename.txt?generation=1699486680811188&prettyPrint=false HTTP/1.1" 204 0
+DEBUG:fuse.log-mixin:<- rename None
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f52b3160040>
+DEBUG:fuse.log-mixin:-> getattr /data.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1696735923, 'st_mtime': 1696735923, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 7776, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /datqa.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699395310, 'st_mtime': 1699395310, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 36, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /hello.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699323891, 'st_mtime': 1699323891, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testcase1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699479805, 'st_mtime': 1699479805, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 69, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testf (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699382196, 'st_mtime': 1699382196, 'st_atime': 1699486545, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile1.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699409086, 'st_mtime': 1699409086, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 21, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfile3.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33261, 'st_ctime': 1699411850, 'st_mtime': 1699411850, 'st_atime': 1699486545, 'st_nlink': 1, 'st_size': 31, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testfolder (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699483023, 'st_mtime': 1699483023, 'st_atime': 1699486545, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testnewname.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486708.6477053, 'st_mtime': 1699486708.6477048, 'st_atime': 1699486664.951957, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f52b3160040>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testnewname.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486708.6477053, 'st_mtime': 1699486708.6477048, 'st_atime': 1699486664.951957, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> open /testnewname.txt (32768,)
+DEBUG:fuse.log-mixin:<- open 4
+DEBUG:fuse.log-mixin:-> read /testnewname.txt (4096, 0, 4)
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /download/storage/v1/b/praskumabucket/o/testnewname.txt?alt=media HTTP/1.1" 200 13
+DEBUG:fuse.log-mixin:<- read b'some content\n'
+DEBUG:fuse.log-mixin:-> flush /testnewname.txt (4,)
+flush called for path: /testnewname.txt
+DEBUG:fuse.log-mixin:<- flush 0
+DEBUG:fuse.log-mixin:-> release /testnewname.txt (4,)
+DEBUG:fuse.log-mixin:<- release 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f52b31670b0>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> opendir / ()
+opendir accessed for path: /
+DEBUG:fuse.log-mixin:<- opendir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> readdir / (0,)
+DEBUG:fuse.log-mixin:<- readdir <generator object GCS_Bucket_FS.readdir at 0x7f52b31670b0>
+DEBUG:fuse.log-mixin:-> releasedir / (0,)
+DEBUG:fuse.log-mixin:<- releasedir 0
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testnewname.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486708.6477053, 'st_mtime': 1699486708.6477048, 'st_atime': 1699486664.951957, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr / (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 16877, 'st_ctime': 1699486545.5296192, 'st_mtime': 1699486545.5296192, 'st_atime': 1699486545.5296192, 'st_nlink': 2, 'st_size': 0, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /testnewname.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486708.6477053, 'st_mtime': 1699486708.6477048, 'st_atime': 1699486664.951957, 'st_nlink': 1, 'st_size': 13, 'is_read_only': False}
+DEBUG:fuse.log-mixin:-> getattr /hardlink.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr '[Errno 2] No such file or directory'
+DEBUG:fuse:FUSE operation getattr raised a <class 'fuse.FuseOSError'>, returning errno 2.
+Traceback (most recent call last):
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 734, in _wrapper
+    return func(*args, **kwargs) or 0
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 774, in getattr
+    return self.fgetattr(path, buf, None)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1027, in fgetattr
+    attrs = self.operations('getattr', self._decode_optional_path(path), fh)
+  File "/home/prashulkumar/.local/lib/python3.9/site-packages/fuse.py", line 1251, in __call__
+    ret = getattr(self, op)(path, *args)
+  File "/home/prashulkumar/testfuse5.py", line 138, in getattr
+    raise FuseOSError(ENOENT) # File or directory does not exist
+fuse.FuseOSError: [Errno 2] No such file or directory
+DEBUG:fuse.log-mixin:-> link /hardlink.txt ('/testnewname.txt',)
+DEBUG:fuse.log-mixin:<- link None
+DEBUG:fuse.log-mixin:-> getattr /hardlink.txt (None,)
+DEBUG:fuse.log-mixin:<- getattr {'st_mode': 33188, 'st_ctime': 1699486815.6382048, 'st_mtime': 1699486815.6382048, 'st_atime': 1699486664.951957, 'st_nlink': 2, 'st_size': 13, 'is_read_only': False}
+
+
+
+
+
+
