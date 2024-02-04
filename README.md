@@ -14,7 +14,7 @@ The GCS FUSE File System contains the following:
 
 **- Google Cloud Storage -** The GCS component stores the actual data. The GCS File System interacts with GCS to upload, download, and manage files and directories.
 
-- File system operations supported are -
+#### File system operations supported are -
   
 - chmod: Change file permissions.
 - chown: Change file ownership.
