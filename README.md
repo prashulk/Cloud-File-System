@@ -5,6 +5,8 @@
 
 This project implements a user-space file system accessible through the FUSE interface, utilizing cloud object storage like Google Cloud Storage for data persistence. Imagine accessing and managing files directly on the cloud, with the familiar experience of a local file system!
 
+<img width="783" alt="image" src="https://github.com/prashulk/Cloud-File-System/assets/67316162/49774ad4-9b43-4e5b-9e39-86484b636988">
+
 
 <img width="869" alt="image" src="https://github.com/prashulk/Cloud-File-System/assets/67316162/d357846a-a206-4e59-ae76-e223de4ac7e8">
 
